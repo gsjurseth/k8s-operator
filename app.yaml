@@ -6,9 +6,9 @@ spec:
   # Add fields here
   name: offersapp
   developer_email: gsjurseth@google.com
-  org: %%PROJECT_ID%%
+  org: apigee-product-demo
   apiProducts:
-  - K8SDemoproduct
+  - NiceK8SDemoproduct
   scopes: []
   attributes:
   - name: ADMIN_EMAIL

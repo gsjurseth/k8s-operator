@@ -7,6 +7,11 @@ spec:
   parentResource:
     apiVersion: apigee.google.com/v1
     resource: apiproducts
+  childResources:
+  - apiVersion: apigee.google.com/v1
+    resource: restfuloperations
+  - apiVersion: apigee.google.com/v1
+    resource: apiprodudcts
   hooks:
     sync:
       webhook:

@@ -1,0 +1,17 @@
+apiVersion: metacontroller.k8s.io/v1alpha1
+kind: CompositeController
+metadata:
+  name: apigee-restfuloperation-controller
+spec:
+  generateSelector: true
+  parentResource:
+    apiVersion: apigee.google.com/v1
+    resource: restfuloperations
+  hooks:
+    sync:
+      webhook:
+        url: http://apigee-controller.apigee-config/restfuloperation/sync
+    finalize:
+      webhook:
+        url: http://apigee-controller.apigee-config/restfuloperation/finalize
+

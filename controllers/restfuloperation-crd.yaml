@@ -2,10 +2,10 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   # name must match the spec fields below, and be in the form: <plural>.<group>
-  name: apiproducts.apigee.google.com
+  name: restfuloperations.apiproducts.apigee.google.com
 spec:
   # group name to use for REST API: /apis/<group>/<version>
-  group: apigee.google.com
+  group: apiproducts.apigee.google.com
   # list of versions supported by this CustomResourceDefinition
   versions:
     - name: v1
@@ -17,7 +17,7 @@ spec:
         status: {}
       schema:
         openAPIV3Schema:
-          description: apiproduct is the Schema for the apiproducts API
+          description: Restful Operation Schema for an individual restful operation in a product
           properties:
             apiVersion:
               description: 'APIVersion defines the versioned schema of this representation
@@ -33,35 +33,39 @@ spec:
               type: object
             spec:
               description: ApiProductSpec defines the desired state of ApiProduct
+              type: object
               properties:
-                org:
+                apiproduct:
                   type: string
-                approvalType:
-                  type: string
-                attributes:
+                restfuloperation:
                   items:
                     properties:
-                      name:
+                      apiSource: 
                         type: string
-                      value:
-                        type: string
+                      operations:
+                        items:
+                          properties:
+                            resource: 
+                              type: string
+                            methods:
+                              items:
+                                type: string
+                              type: array
+                          type: object
+                        type: array
+                      quota:
+                        properties:
+                          limit:
+                            type: string
+                          interval:
+                            type: string
+                          timeUnit: 
+                            type: string
+                        type: object
                     type: object
                   type: array
-                description:
+                operationConfigType:
                   type: string
-                displayName:
-                  type: string
-                environments:
-                  items:
-                    type: string
-                  type: array
-                name:
-                  type: string
-                scopes:
-                  items:
-                    type: string
-                  type: array
-              type: object
             status:
               description: ApiProductStatus defines the observed state of ApiProduct
               type: object
@@ -70,11 +74,11 @@ spec:
   scope: Namespaced
   names:
     # plural name to be used in the URL: /apis/<group>/<version>/<plural>
-    plural: apiproducts
+    plural: restfuloperations
     # singular name to be used as an alias on the CLI and for display
-    singular: apiproduct
+    singular: restfuloperation
     # kind is normally the CamelCased singular type. Your resource manifests use this.
-    kind: APIProduct
+    kind: RESTFulOperation
     # shortNames allow shorter string to match your resource on the CLI
     shortNames:
-    - apipr
+    - resto
