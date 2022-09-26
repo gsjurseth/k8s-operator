@@ -1,0 +1,49 @@
+apiVersion: apigee.google.com/v1
+kind: APIProduct
+metadata:
+  name: k8sdemoproduct
+spec:
+  # Add fields here
+  name: K8SDemoproduct
+  approvalType: auto
+  description: K8SDemoproduct
+  displayName: K8SDemoproduct
+  org: %%PRODUCT_ID%%
+  attributes:
+  - name: access
+    value: public
+  - name: apigee-remote-service-targets
+    value: foo.snarf.com
+  environments:
+  - dev-prog-proxy
+  operationGroup:
+    operationConfigs:
+    - apiSource: offers-service
+      operations:
+      - resource: "/offers"
+        methods:
+        - DELETE
+        - GET
+        - OPTIONS
+        - PATCH
+        - POST
+        - PUT
+      quota:
+        limit: '10'
+        interval: '1'
+        timeUnit: minute
+    - apiSource: loyalty-service
+      operations:
+      - resource: "/members"
+        methods:
+        - DELETE
+        - GET
+        - OPTIONS
+        - PATCH
+        - POST
+        - PUT
+      quota:
+        limit: '5'
+        interval: '1'
+        timeUnit: minute
+    operationConfigType: remoteservice

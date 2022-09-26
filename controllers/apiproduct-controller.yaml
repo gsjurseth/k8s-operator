@@ -1,0 +1,17 @@
+apiVersion: metacontroller.k8s.io/v1alpha1
+kind: CompositeController
+metadata:
+  name: apigee-apiproduct-controller
+spec:
+  generateSelector: true
+  parentResource:
+    apiVersion: apigee.google.com/v1
+    resource: apiproducts
+  hooks:
+    sync:
+      webhook:
+        url: http://apigee-controller.apigee-config/apiproduct/sync
+    finalize:
+      webhook:
+        url: http://apigee-controller.apigee-config/apiproduct/finalize
+

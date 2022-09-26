@@ -1,0 +1,17 @@
+apiVersion: apigee.google.com/v1
+kind: DeveloperApp
+metadata:
+  name: offersapp
+spec:
+  # Add fields here
+  name: offersapp
+  developer_email: gsjurseth@google.com
+  org: %%PRODUCT_ID%%
+  apiProducts:
+  - K8SDemoproduct
+  scopes: []
+  attributes:
+  - name: ADMIN_EMAIL
+    value: admin@example.com
+  - name: DisplayName
+    value: Retail API Offers App
