@@ -8,7 +8,7 @@ spec:
   approvalType: auto
   description: K8SDemoproduct
   displayName: K8SDemoproduct
-  org: %%PRODUCT_ID%%
+  org: %%PROJECT_ID%%
   attributes:
   - name: access
     value: public
@@ -22,28 +22,10 @@ spec:
       operations:
       - resource: "/offers"
         methods:
-        - DELETE
         - GET
-        - OPTIONS
-        - PATCH
         - POST
-        - PUT
       quota:
         limit: '10'
-        interval: '1'
-        timeUnit: minute
-    - apiSource: loyalty-service
-      operations:
-      - resource: "/members"
-        methods:
-        - DELETE
-        - GET
-        - OPTIONS
-        - PATCH
-        - POST
-        - PUT
-      quota:
-        limit: '5'
         interval: '1'
         timeUnit: minute
     operationConfigType: remoteservice

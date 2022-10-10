@@ -6,7 +6,7 @@ spec:
   # Add fields here
   name: offersapp
   developer_email: gsjurseth@google.com
-  org: %%PRODUCT_ID%%
+  org: %%PROJECT_ID%%
   apiProducts:
   - K8SDemoproduct
   scopes: []
