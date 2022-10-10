@@ -78,4 +78,5 @@ kubectl get developerapps
 You'll note that you even get back the consumer key which you can use for apikey authentication.
 
 | NAME | AGE | CONSUMERKEY |
+| ----| --- | ------- |
 | offersapp | 13d | secret-key |
